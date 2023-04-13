@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { getDomain } from "../util/domain";
 import {
   useRouteLoaderData,
   json,
@@ -33,7 +34,9 @@ function EventDetailPage() {
 export default EventDetailPage;
 
 async function loadEvent(id) {
-  const response = await fetch("http://localhost:8080/events/" + id);
+  const domainName = getDomain();
+
+  const response = await fetch(`${domainName}/events/${id}`);
 
   if (!response.ok) {
     throw json(
@@ -49,7 +52,9 @@ async function loadEvent(id) {
 }
 
 async function loadEvents() {
-  const response = await fetch("http://localhost:8080/events");
+  const domainName = getDomain();
+
+  const response = await fetch(`${domainName}/events`);
 
   if (!response.ok) {
     // return { isError: true, message: 'Could not fetch events.' };
@@ -80,7 +85,9 @@ export async function loader({ request, params }) {
 export async function action({ params, request }) {
   const eventId = params.eventId;
   const token = `Bearer ${getAuthToken("token")}`;
-  const url = `http://localhost:8080/events/${eventId}`;
+  const domainName = getDomain();
+
+  const url = `${domainName}/events/${eventId}`;
   const response = await fetch(url, {
     method: request.method,
     headers: {

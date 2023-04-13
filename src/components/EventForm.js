@@ -7,6 +7,7 @@ import {
   redirect,
 } from "react-router-dom";
 import { getAuthToken } from "../util/auth";
+import { getDomain } from "../util/domain";
 import classes from "./EventForm.module.css";
 
 function EventForm({ method, event }) {
@@ -84,6 +85,7 @@ function EventForm({ method, event }) {
 export default EventForm;
 
 export async function action({ request, params }) {
+  const domainName = getDomain();
   const method = request.method;
   const data = await request.formData();
   const token = `Bearer ${getAuthToken("token")}`;
@@ -94,13 +96,13 @@ export async function action({ request, params }) {
     description: data.get("description"),
   };
 
-  let url = "http://localhost:8080/events";
+  let url = `${domainName}/events`;
 
   if (method === "PATCH") {
     const eventId = params.eventId;
-    url = "http://localhost:8080/events/" + eventId;
+    url = `${domainName}/events/${eventId}`;
   }
-
+  console.log(`url = ${url}`);
   const response = await fetch(url, {
     method: method,
     headers: {

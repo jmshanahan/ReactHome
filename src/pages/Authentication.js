@@ -1,5 +1,5 @@
 import { json, redirect } from "react-router-dom";
-
+import { getDomain } from "../util/domain";
 import AuthForm from "../components/AuthForm";
 
 function AuthenticationPage() {
@@ -9,6 +9,7 @@ function AuthenticationPage() {
 export async function action({ request }) {
   const searchParams = new URL(request.url).searchParams;
   const mode = searchParams.get("mode") || "login";
+  const domainName = getDomain();
 
   if (mode !== "login" && mode !== "signup") {
     throw json({ message: "Unsupported mode" }, { status: 422 });
@@ -18,7 +19,7 @@ export async function action({ request }) {
     email: data.get("email"),
     password: data.get("password"),
   };
-  const url = `http://localhost:8080/${mode}`;
+  const url = `${domainName}/${mode}`;
 
   const response = await fetch(url, {
     method: request.method,

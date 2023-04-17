@@ -12,7 +12,7 @@ function PageContent({ title, children }) {
         basically a nodejs website with an in-memory json file to store data. If
         you enter{"  "}
         <a href="https://jshanahan.biz/events" target="_blank" rel="noreferrer">
-          www.jshanahan.com
+          www.jshanahan.biz/events
         </a>{" "}
         you will get some events back in json format.
       </p>

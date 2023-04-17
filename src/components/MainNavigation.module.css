@@ -13,10 +13,13 @@
 
 .list a {
   text-decoration: none;
-  color: var(--color-primary-400);
+  color: var(--color-primary-nav);
 }
 
 .list a:hover,
 .list a.active {
   color: var(--color-primary-800);
+}
+.logo img {
+  max-height: 50px;
 }

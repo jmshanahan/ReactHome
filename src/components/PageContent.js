@@ -10,8 +10,11 @@ function PageContent({ title, children }) {
         in place. You will need to login to edit and remove events. The frontend
         is built with React and the back end in nodejs. The databaase is
         basically a nodejs website with an in-memory json file to store data. If
-        you enter https://jshanahan.biz/events you will bet some events back in
-        json format.
+        you enter{"  "}
+        <a href="https://jshanahan.biz/events" target="_blank" rel="noreferrer">
+          www.jshanahan.com
+        </a>{" "}
+        you will get some events back in json format.
       </p>
       <h2>Source Code</h2>
       <p>
@@ -24,6 +27,7 @@ function PageContent({ title, children }) {
           here
         </a>
       </p>
+      <p>This is hosted on (Amazone Web Service) AWS Amplify</p>
       <p>
         The back end code is available from{"   "}
         <a
@@ -31,8 +35,11 @@ function PageContent({ title, children }) {
           target="_blank"
           rel="noreferrer"
         >
-          here
+          here{"  "}
         </a>
+        <br />
+        This is hosted on an (Amazone Web Service) AWS EC2 Linux machine. It is
+        setup with an Nginx reverse proxy. It is secured using Lets Encrypt.
       </p>
       <h2>Instructions</h2>
       <p>
@@ -55,14 +62,11 @@ function PageContent({ title, children }) {
         >
           Linkedln profile here
         </a>
+        <br />
         Currently I am on my way back to Ireland from Australia and will arrive
         back in ireland on the 28 April 2023. I also have another site that is
         available{" "}
-        <a
-          href="https://www.linkedin.com/in/scroutie/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://www.jshanahan.com/" target="_blank" rel="noreferrer">
           www.jshanahan.com
         </a>
         <h3>Contact Info</h3>
